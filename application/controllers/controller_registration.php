@@ -12,20 +12,20 @@ class Controller_Registration extends Controller
       $this->view->generate('registration_view.php', 'template_view.php');
     }
 
+    function action_auth(){
+      session_start();
+      $_SESSION['login'] = $_POST['login'];
+      setcookie("name",$_POST['login']);
+    }
+
     function action_signup()
     {
       $data = $this->model->get_data();
       $resultReg = $this->check_user($data);
-      if ($resultReg['answer']){
-          session_start();
+      if ($resultReg['answer'] == true){
+        $this->action_auth();
       }
-
       echo json_encode($resultReg);
-    }
-
-    function action_addNewUser()
-    {
-
     }
 
     function check_user($data){

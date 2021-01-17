@@ -12,10 +12,11 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template <script src="js/jquery-3.5.1.js"></script>   <script src='js/registration.js'></script> -->
     <link href="css/form-validation.css" rel="stylesheet">
+
     <script src="js/jquery-3.5.1.js"></script>
-    <script src="js/registration.js"></script>
+
 
   </head>
 
@@ -31,7 +32,7 @@
       <div class="row">
         <div class="col-md-2 order-md-1"></div>
         <div class="col-md-8 order-md-1">
-          <form class="needs-validation" action="/Registration/signup"  method="post" novalidate>
+          <form class="needs-validation" id="regform" action="/Registration/signup"  method="post" onsubmit='return false;' novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="login">Логин</label>
@@ -87,12 +88,12 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <!-- Placed at the end of the document so the pages load faster
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
+
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
@@ -109,6 +110,26 @@
                 event.preventDefault();
                 event.stopPropagation();
               }
+              else{
+              $('form').submit(function(e) {
+                var $form = $(this);
+                $.ajax({
+                  type: "POST",
+                  url: "/Registration/signup",
+                  data: { login: $("#login").val(), nameUser: $("#nameUser").val(),  email: $("#email").val(), password: $("#password").val(), confirm_password: $("#confirm_password").val() }
+                }).done(function(result) {
+                  var dd = JSON.parse(result);
+
+                  if (dd.answer == true) {
+                    $(location).attr('href', '/main');
+                  }
+                  else{
+                  }
+                });
+                e.preventDefault();
+              });
+              }
+
               form.classList.add('was-validated');
             }, false);
           });
