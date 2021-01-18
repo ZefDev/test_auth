@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+
+<user>
+ <id>1</id>
+ <password>ffea121e26da27ef2b49ddf76fc413128</password>
+ <email>alex123999@gmail.com</email>
+ <nameUser>user2</nameUser>
+ <login>user123999</login>
+</user>
+<user>
+ <id>2</id>
+ <password>ffea121e26da27ef2b49ddf2342424</password>
+ <email>nex123@gmail.com</email>
+ <nameUser>user3</nameUser>
+ <login>user123</login>
+</user>
+<user>
+ <id>3</id>
+ <password>e220dca9fe99bae977caf995ce1d9fe0</password>
+ <email>alex123@gmail.com</email>
+ <nameUser>Alex Jork</nameUser>
+ <login>user123</login>
+</user>
+</users>

@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="img/icon.png">
 
-    <title>404</title>
+    <title>Главная</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
       <img class="mb-4" src="img/icon.png" alt="" width="150" height="150">
       <h1 class="h3 mb-3 font-weight-normal">Hi Hi <?php print_r($_COOKIE['PHPSESSID']); ?></h1>
       <div class="mb-3">
-        <a href="/">На главную</a>
+        <a href="/">Выйти</a>
       </div>
       <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
     </form>

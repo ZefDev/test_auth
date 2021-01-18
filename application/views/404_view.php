@@ -22,7 +22,7 @@
       <img class="mb-4" src="img/icon.png" alt="" width="150" height="150">
       <h1 class="h3 mb-3 font-weight-normal">404</h1>
       <div class="mb-3">
-        <a href="/">На главную</a>
+        <a href="/">Выйти</a>
       </div>
       <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
     </form>
