@@ -7,7 +7,9 @@ $(function() {
           url: $form.attr('action'),
           data: { login: $("#login").val(), password: $("#password").val() }
         }).done(function(result) {
+          alert(result);
           var dd = JSON.parse(result);
+
           if (dd.answer == true) {
             $(location).attr('href', '/main')
           }

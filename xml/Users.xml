@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <users>
-
 <user>
  <id>1</id>
  <password>ffea121e26da27ef2b49ddf76fc413128</password>
@@ -9,17 +8,11 @@
  <login>user123999</login>
 </user>
 <user>
- <id>2</id>
+ <id/>
  <password>ffea121e26da27ef2b49ddf2342424</password>
- <email>nex123@gmail.com</email>
- <nameUser>user3</nameUser>
- <login>user123</login>
-</user>
-<user>
- <id>3</id>
- <password>e220dca9fe99bae977caf995ce1d9fe0</password>
  <email>alex123@gmail.com</email>
- <nameUser>Alex Jork</nameUser>
+ <nameUser>Alex Jork26</nameUser>
  <login>user123</login>
 </user>
-</users>
+<user><id>0</id><email>boriska@gmail.com</email><nameUser>boriska Jork26</nameUser><login>3Boriza</login><password/></user>
+<user><id>0</id><email>alex127683788@gmail.com</email><nameUser>AlexJork324324</nameUser><login>ZefDev</login><password>ffea121e26da27ef2b49ddf76fc4067c</password></user></users>

@@ -14,8 +14,10 @@ class Controller_Authorization extends Controller
 
     function action_signin()
     {
-      $data = $this->model->get_data();
+      $data = $this->model->get_data($_POST['login']);
+
       $resultAuth = $this->check_user($data);
+
       if (gettype($resultAuth)=="array"){
           echo json_encode($resultAuth); // Отправляем ошибки
 
@@ -24,8 +26,6 @@ class Controller_Authorization extends Controller
         session_start();
         echo json_encode(Array('answer' => true));
       }
-
-
 		  //$this->view->generate('authorization_view.php', 'template_view.php', $data);
     }
 
@@ -40,9 +40,13 @@ class Controller_Authorization extends Controller
           $pasword = $_POST['password'];
         }
         if ($data['login'] != $_POST['login']) {
+
+           print_r( $data);
+           echo $_POST['login'];
             $err += ['login' => "Неверный логин"];
             $err += ['answer' => "false"];
-        } elseif($data['password'] != $_POST['password']) {
+        } elseif($data['password'] !=  md5("соль".$_POST['password'])) {
+          echo md5("соль".$_POST['password']);
             $err += ['password' => "Неверный пароль"];
             $err += ['answer' => "false"];
         }

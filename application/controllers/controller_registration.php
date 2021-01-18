@@ -20,12 +20,14 @@ class Controller_Registration extends Controller
 
     function action_signup()
     {
-      $data = $this->model->get_data();
-      $resultReg = $this->check_user($data);
-      if ($resultReg['answer'] == true){
+      $resultReg = $this->model->add_newUser($_POST);
+      if ($resultReg){
         $this->action_auth();
+        echo json_encode( Array('answer' => true));
       }
-      echo json_encode($resultReg);
+      else{
+        echo json_encode( Array('answer' => false));
+      }
     }
 
     function check_user($data){
@@ -64,7 +66,10 @@ class Controller_Registration extends Controller
         }
 
         if (count($err) == 0) {
-          return Array('answer' => true);
+          if($this->model->add_newUser($_POST)){
+            return Array('answer' => true);
+          }
+          return Array('answer' => false);
         }
         else{
           return $err;

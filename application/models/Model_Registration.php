@@ -1,7 +1,14 @@
 <?php
+require_once 'DBXML.php';
 class Model_Registration extends Model
 {
-	public function get_data()
+	private $dbxml;
+	function __construct()
+	{
+		  $this->dbxml = new DBXML(getcwd()."\xml\Users.xml");
+
+	}
+	public function get_data($login="")
 	{
 		return array(
 				'login' => 'user123',
@@ -11,11 +18,9 @@ class Model_Registration extends Model
 		);
 	}
 
-	public function add_newUser()
+	public function add_newUser($data)
 	{
-		$secret = "соль"; // Секретное слово
- 		$password = "123"; // Пароль
- 		echo md5($password.$secret); // Результат хэширования
+		return $this->dbxml->add_user(new User($data['email'],$data['nameUser'],$data['login'],$data['password']));
 	}
 
 }
